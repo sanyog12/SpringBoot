@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+						http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+
+	<!-- <bean id="addr1" class="com.demo.model.Address">
+     <property
+	name="addrid" value="1"></property>
+     <property name="street"
+	value="baner"></property>
+     <property name="city"
+	value="Pune"></property>
+  </bean> -->
+	<bean id="p1" class="com.demo.model.Person">
+		<property name="pid" value="1"></property>
+		<property name="pname" value="xxxx"></property>
+	</bean>
+	<bean id="p2" class="com.demo.model.Employee" parent="p1">
+		<property name="dept" value="Hr"></property>
+		<property name="desg" value="verry"></property>
+	</bean>
+	<bean id="addr" class="com.demo.model.Address">
+     <property name="addrid" value="11"></property>
+     <property name="street" value="Vanaz"></property>
+     <property name="city" value="Mumbai"></property>
+  </bean>	
+	<bean id="usr" class="com.demo.model.MyUSer" autowire="byType">
+		<property name="uid" value="111"></property>
+		<property name="uname" value="xxsaf"></property>
+		<property name="addr" ref="addr"></property>
+	</bean>
+</beans>
